@@ -34,5 +34,11 @@ autoGenerateId (){
         conflictAlgorithm: ConflictAlgorithm.replace);
    // return response;
   }
-
+  getAllEntries() async {
+    final db = await database;
+    var res = await db.query("Client");
+    List<Entry> list =
+    res.isNotEmpty ? res.map((c) => Entry.fromMap(c)).toList() : [];
+    return list;
+  }
 }
