@@ -1,4 +1,4 @@
-import 'package:charts_demo_flutter/database.dart';
+import 'package:charts_demo_flutter/db_helper.dart';
 import 'package:charts_demo_flutter/form_widget.dart';
 import 'package:charts_demo_flutter/home_widget.dart';
 import 'package:charts_demo_flutter/list_widget.dart';
@@ -6,6 +6,7 @@ import 'package:charts_demo_flutter/my_app_bar.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:charts_demo_flutter/chart.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,19 +36,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Database database = new Database();
-  List<String> data;
-  final textController = TextEditingController();
 
   @override
-  initState() {
+  initState()  {
+
     super.initState();
-    database.add("dummy");
+
   }
 
   @override
   void dispose() {
-    textController.dispose();
+
     super.dispose();
   }
 
